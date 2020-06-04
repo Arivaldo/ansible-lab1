@@ -6,7 +6,7 @@ pipeline {
       stage('Ckeckout do Playbook') {
          steps {
             echo 'Checking out playbook'
-            git url: 'git@github.com:Arivaldo/ansible-lab1.git', branch: 'master' 
+            git url: 'git@github.com:Arivaldo/ansible-lab1.git', branch: 'master', credentialsId: 'GitHubArivaldo' 
             sh 'ls'
          }
       }
