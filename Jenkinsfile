@@ -12,9 +12,7 @@ pipeline {
       }
       stage('Play') {
         steps {
-            ansiblePlaybook(playbook: './playbook_1.yml') {
-                
-            }
+            ansiblePlaybook(playbook: './playbook_1.yml')
         }
       }
    }
