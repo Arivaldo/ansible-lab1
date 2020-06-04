@@ -3,10 +3,11 @@ pipeline {
    agent any
 
    stages {
-      stage('Verifica Ansible') {
+      stage('Ckeckout do Playbook') {
          steps {
-            echo 'Hello Ansible'
-            sh 'ansible all -m ping'
+            echo 'Checking out playbook'
+            git url: 'git@github.com:Arivaldo/ansible-lab1.git', branch: 'master' 
+            sh 'ls'
          }
       }
    }
