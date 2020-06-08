@@ -23,6 +23,9 @@
     - name: Criando imagens Whoami
       docker_container:
         image: containous/whoami
-        state: present
+        state: running
+        recreate: yes
+        ports:
+          - "80:80"
         name: "whoami{{ item }}"
       with_sequence: count={{ num_instancias }}
