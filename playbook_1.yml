@@ -13,6 +13,6 @@
         name: "{{ imagem_de_teste }}"
         source: pull
     - name: Verificando imagens locais
-      command: docker imagens
+      command: docker images
       register: dockerimages
     - debug: msg="{{ dockerimages}}"
