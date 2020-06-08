@@ -3,16 +3,25 @@
   remote_user: root
   vars:
     imagem_de_teste: containous/whoami
+    num_instancias: 2
   tasks:
     - name: Verifica Conteiners Rodando
       command: docker ps
       register: dockerstatus
     - debug: msg="{{ dockerstatus.stdout }}"
+
     - name: Baixando imagem containous/whoami
       docker_image:
         name: "{{ imagem_de_teste }}"
         source: pull
+
     - name: Verificando imagens locais
       command: docker images
       register: dockerimages
     - debug: msg="{{ dockerimages}}"
+
+    - name: Criando imagens Whoami
+      docker_container:
+        image: containous/whoami
+        state: present
+      with_sequence: count={{ num_instancias }}
