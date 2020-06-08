@@ -3,4 +3,4 @@
   remote_user: root
   tasks:
     - name: Verifica Conteiners Rodando
-      shell: docker ps
+      command: docker ps
