@@ -4,3 +4,5 @@
   tasks:
     - name: Verifica Conteiners Rodando
       command: docker ps
+      register: dockerstatus
+    - debug: msg="{{ dockerstatus.stdout }}"
