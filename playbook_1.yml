@@ -24,4 +24,5 @@
       docker_container:
         image: containous/whoami
         state: present
+        name: "whoami{{ item }}"
       with_sequence: count={{ num_instancias }}
