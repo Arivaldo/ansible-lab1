@@ -1,8 +1,18 @@
 ---
-- hosts: localhost
+- hosts: all
   remote_user: root
+  vars:
+    imagem_de_teste: containous/whoami
   tasks:
     - name: Verifica Conteiners Rodando
       command: docker ps
       register: dockerstatus
     - debug: msg="{{ dockerstatus.stdout }}"
+    - name: Baixando imagem containous/whoami
+      docker_image:
+        name: "{{ imagem_de_teste }}"
+        source: pull
+    - name: Verificando imagens locais
+      command: docker imagens
+      register: dockerimages
+    - debug: msg="{{ dockerimages}}"
