@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  remote_user: root
+  tasks:
+    - name: Criando instancias de  Whoami
+      docker_container:
+        image: containous/whoami
+        state: started
+        recreate: yes
+        name: "whoami{{ item }}"
+      with_sequence: count={{ num_instancias }}
+    - name: Adicionando Whoami1 na rede docker Matrix
+      docker_container:
+        name: whoami1
+        networks:
+          - name: matrix
+    - name: Adicionando Whoami2 na rede docker Matrix
+      docker_container:
+        name: whoami2
+        networks:
+          - name: matrix

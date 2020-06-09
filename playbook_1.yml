@@ -19,13 +19,3 @@
       command: docker images
       register: dockerimages
     - debug: msg="{{ dockerimages}}"
-
-    - name: Criando imagens Whoami
-      docker_container:
-        image: containous/whoami
-        state: started
-        recreate: yes
-        ports:
-          - "80:80"
-        name: "whoami{{ item }}"
-      with_sequence: count={{ num_instancias }}
