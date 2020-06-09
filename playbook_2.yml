@@ -1,10 +1,13 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    imagem_de_teste: containous/whoami
+    num_instancias: 2
   tasks:
     - name: Criando instancias de  Whoami
       docker_container:
-        image: containous/whoami
+        image: "{{ imagem_de_teste }}"
         state: started
         recreate: yes
         name: "whoami{{ item }}"
