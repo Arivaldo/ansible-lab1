@@ -20,6 +20,11 @@ pipeline {
             ansiblePlaybook playbook: './playbook_2.yml', installation: 'ansible',  colorized: true
         }
       }
+      stage('Configurando Rede do Whoami') {
+        steps {
+            ansiblePlaybook playbook: './playbook_3.yml', installation: 'ansible',  colorized: true
+        }
+      }
       stage('Testando Whoami') {
         agent {
            docker {
