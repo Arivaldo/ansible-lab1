@@ -30,6 +30,16 @@ pipeline {
           sh "ab -n 1000 -c 500 https://tecvaldo-pro.matrix.net/whoami"
         }
       }
+      stage('Registrando no BMC Remedy') {
+        steps {
+          sh "curl -v https://tecvaldo-pro.matrix.net/whoami/api"
+        }
+      }
+      stage('Notificando Interessados') {
+        steps {
+          sh "curl -v https://tecvaldo-pro.matrix.net/whoami/api"
+        }
+      }
       
    }
 }
