@@ -32,12 +32,12 @@ pipeline {
       }
       stage('Registrando no BMC Remedy') {
         steps {
-          sh "curl -v https://tecvaldo-pro.matrix.net/whoami/api"
+          sh "curl -vk https://tecvaldo-pro.matrix.net/whoami/api"
         }
       }
       stage('Notificando Interessados') {
         steps {
-          sh "curl -v https://tecvaldo-pro.matrix.net/whoami/api"
+          sh "curl -vk https://tecvaldo-pro.matrix.net/whoami/api"
         }
       }
       
