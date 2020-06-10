@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  remote_user: root
+  tasks:
+    - name: Adicionando Whoami1 na rede docker Matrix
+      docker_container:
+        name: whoami1
+        networks:
+          - name: matrix
+    - name: Adicionando Whoami2 na rede docker Matrix
+      docker_container:
+        name: whoami2
+        networks:
+          - name: matrix
